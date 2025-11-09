@@ -1,6 +1,6 @@
 package Devices;
 
-public abstract class BaseDetector extends BaseDevice {
+public abstract class BaseDetector extends BaseDevice implements IDetector{
     private boolean alarm;
     private final String ALERT_MESSAGE = "Alert!";
     private final String NOTHING_HAPPEND_MESSAGE = "Nothig happening";
