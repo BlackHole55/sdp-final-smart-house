@@ -9,7 +9,7 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     private boolean alarm;
     private static final String ALERT_MESSAGE = "Alert!";
     private static final String NOTHING_HAPPENED_MESSAGE = "Nothing happening";
-    private final Set<Observer> observers = new HashSet();
+    private final Set<Observer> observers = new HashSet<Observer>();
 
     public BaseDetector() {
     }
@@ -32,9 +32,9 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     protected void triggerAlarm(boolean alarmState) {
         this.alarm = alarmState;
         if (this.alarm) {
-            this.notifyObservers("Alert!");
+            this.notifyObservers(ALERT_MESSAGE);
         } else {
-            this.notifyObservers("Nothing happening");
+            this.notifyObservers(NOTHING_HAPPENED_MESSAGE);
         }
 
     }
