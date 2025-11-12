@@ -2,14 +2,13 @@ package Creational.Builder;
 
 import ConcreteDevices.Lighting;
 import Creational.Factory.LightingFactory;
-import Devices.IDevice;
 
 public class LightingBuilder{
-    protected IDevice device;
+    protected Lighting device;
 
     public LightingBuilder() {
         LightingFactory lightingFactory = new LightingFactory();
-        this.device = lightingFactory.createDevice();
+        this.device = (Lighting) lightingFactory.createDevice();
     }
 
     public LightingBuilder withPowerState(boolean powerState) {
@@ -23,12 +22,12 @@ public class LightingBuilder{
     }
 
     public LightingBuilder withBrightness(double brightness) {
-        ((Lighting) device).setBrightness(brightness);
+        device.setBrightness(brightness);
 
         return this;
     }
 
-    public IDevice build() {
+    public Lighting build() {
         return this.device;
     }
 }

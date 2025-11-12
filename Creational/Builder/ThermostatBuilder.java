@@ -2,14 +2,13 @@ package Creational.Builder;
 
 import ConcreteDevices.Thermostat;
 import Creational.Factory.ThermostatFactory;
-import Devices.IDevice;
 
 public class ThermostatBuilder {
-    protected IDevice device;
+    protected Thermostat device;
 
     public ThermostatBuilder() {
-        ThermostatFactory thermostatFactory = new ThermostatFactory(); 
-        this.device = thermostatFactory.createDevice();
+        ThermostatFactory thermostatFactory = new ThermostatFactory();
+        this.device = (Thermostat) thermostatFactory.createDevice();
     }
 
     public ThermostatBuilder withPowerState(boolean powerState) {
@@ -23,12 +22,12 @@ public class ThermostatBuilder {
     }
 
     public ThermostatBuilder withTemperature(double temperature) {
-        ((Thermostat) device).setTemperature(temperature);
+        device.setTemperature(temperature);
 
         return this;
     }
 
-    public IDevice build() {
+    public Thermostat build() {
         return this.device;
     }
 }
