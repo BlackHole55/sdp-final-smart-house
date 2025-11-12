@@ -7,13 +7,11 @@ import HandBook.HandBook;
 import StrategyImplementation.HomeModeStrategy;
 
 public class HomeManagerFacade {
-    private HandBook handBook;
     private LightingSystem lights;
     private HeatingSystem heating;
     private SecuritySystem security;
 
     public HomeManagerFacade(HandBook handBook){
-        this.handBook = handBook;
         this.lights = new LightingSystem();
         this.heating = new HeatingSystem(handBook);
         this.security = new SecuritySystem();
