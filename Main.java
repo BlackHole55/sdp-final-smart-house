@@ -1,6 +1,6 @@
 import Creational.DetectorType;
 import Creational.DeviceBuilder;
-import Creational.DeviceFactory;
+import Creational.Factory;
 import Creational.DeviceType;
 import Devices.IDetector;
 import Devices.IDevice;
@@ -52,7 +52,7 @@ public class Main {
         System.out.println("=== Observer Pattern ===");
         SecuritySystem security = new SecuritySystem();
 
-        IDetector smoke = DeviceFactory.createDetector(DetectorType.SECURITY_CAMERA);
+        IDetector smoke = Factory.createDetector(DetectorType.SECURITY_CAMERA);
         smoke.addObserver(new FireObserver(security));
         smoke.turnOn();
         smoke.setDetected(true);
@@ -60,7 +60,7 @@ public class Main {
 
         System.out.println();
 
-        IDetector camera = DeviceFactory.createDetector(DetectorType.SMOKE_DETECTOR);
+        IDetector camera = Factory.createDetector(DetectorType.SMOKE_DETECTOR);
         camera.addObserver(new PresenceDetectionObserver(security));
         camera.turnOn();
         camera.setDetected(true);

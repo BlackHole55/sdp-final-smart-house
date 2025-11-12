@@ -7,7 +7,7 @@ import ConcreteDevices.Thermostat;
 import Devices.IDetector;
 import Devices.IDevice;
 
-public class DeviceFactory {
+public class Factory {
     
     public static IDevice createDevice(DeviceType type) {
         switch (type) {

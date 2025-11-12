@@ -8,7 +8,7 @@ public class DeviceBuilder {
     private IDevice device;
 
     public DeviceBuilder(DeviceType type) {
-        this.device = DeviceFactory.createDevice(type);
+        this.device = Factory.createDevice(type);
     }
 
     public DeviceBuilder withPowerState(boolean powerState) {
