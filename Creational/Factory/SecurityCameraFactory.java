@@ -1,11 +1,11 @@
 package Creational.Factory;
 
 import ConcreteDevices.SecurityCamera;
-import Devices.IDevice;
+import Devices.IDetector;
 
-public class SecurityCameraFactory extends DeviceFactory {
+public class SecurityCameraFactory extends DetectorFactory {
     @Override
-    public IDevice createDevice() {
+    public IDetector createDetector() {
         return new SecurityCamera();
     }
 }

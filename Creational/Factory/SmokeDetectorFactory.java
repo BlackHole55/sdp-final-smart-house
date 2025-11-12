@@ -1,10 +1,11 @@
 package Creational.Factory;
 
 import ConcreteDevices.SmokeDetector;
-import Devices.IDevice;
+import Devices.IDetector;
 
-public class SmokeDetectorFactory extends DeviceFactory {
-    public IDevice createDevice() {
+public class SmokeDetectorFactory extends DetectorFactory {
+    @Override
+    public IDetector createDetector() {
         return new SmokeDetector();
     }
 }
