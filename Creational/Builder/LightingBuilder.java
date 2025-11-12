@@ -1,15 +1,15 @@
 package Creational.Builder;
 
 import ConcreteDevices.Lighting;
-import Creational.DeviceFactory;
-import Creational.DeviceType;
+import Creational.Factory.LightingFactory;
 import Devices.IDevice;
 
 public class LightingBuilder{
     protected IDevice device;
 
     public LightingBuilder() {
-        this.device = DeviceFactory.createDevice(DeviceType.LIGHTING);
+        LightingFactory lightingFactory = new LightingFactory();
+        this.device = lightingFactory.createDevice();
     }
 
     public LightingBuilder withPowerState(boolean powerState) {

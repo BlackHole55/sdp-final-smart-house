@@ -1,15 +1,15 @@
 package Creational.Builder;
 
 import ConcreteDevices.Thermostat;
-import Creational.DeviceFactory;
-import Creational.DeviceType;
+import Creational.Factory.ThermostatFactory;
 import Devices.IDevice;
 
 public class ThermostatBuilder {
     protected IDevice device;
 
     public ThermostatBuilder() {
-        this.device = DeviceFactory.createDevice(DeviceType.THERMOSTAT);
+        ThermostatFactory thermostatFactory = new ThermostatFactory(); 
+        this.device = thermostatFactory.createDevice();
     }
 
     public ThermostatBuilder withPowerState(boolean powerState) {
