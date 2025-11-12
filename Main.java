@@ -1,9 +1,10 @@
 import Creational.Builder.LightingBuilder;
 import Creational.Builder.ThermostatBuilder;
 import Creational.Factory.SmokeDetectorFactory;
+import ConcreteDevices.Lighting;
 import ConcreteDevices.SecurityCamera;
+import ConcreteDevices.Thermostat;
 import Devices.IDetector;
-import Devices.IDevice;
 import FacadeImplementation.ConcreteFacades.SecuritySystem;
 import FacadeImplementation.HomeManagerFacade;
 import StrategyImplementation.HomeModes.LeavingHomeMode;
@@ -19,18 +20,20 @@ public class Main {
         HomeManagerFacade homeManager = new HomeManagerFacade(handBook);
 
         System.out.println("=== Device Builder===");
-        IDevice light = new LightingBuilder()
+        Lighting light = new LightingBuilder()
                 .withPowerState(true)
                 .withBrightness(75)
                 .build();
 
-        IDevice thermostat = new ThermostatBuilder()
+        Thermostat thermostat = new ThermostatBuilder()
                 .withPowerState(true)
                 .withTemperature(23)
                 .build();
 
         System.out.println("Lighting status: " + light.showStatus());
+        System.out.println("Lighting brightness: " + light.getBrightness());
         System.out.println("Thermostat status: " + thermostat.showStatus());
+        System.out.println("Thermostat temperature: " + thermostat.getTemperature());
         System.out.println();
 
         System.out.println("=== Home Mode Strategy ===");
