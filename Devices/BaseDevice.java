@@ -20,4 +20,7 @@ public abstract class BaseDevice implements IDevice {
             return POWER_OFF;
         }
     }
+    public boolean isOn(){
+        return powerState;
+    }
 }

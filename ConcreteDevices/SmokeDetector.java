@@ -3,5 +3,23 @@ package ConcreteDevices;
 import Devices.BaseDetector;
 
 public class SmokeDetector extends BaseDetector{
-    
+    private boolean smokeDetected;
+
+    public SmokeDetector() {
+    }
+
+    public void setSmokeDetected(boolean detected) {
+        this.smokeDetected = detected;
+    }
+
+    public void detect() {
+        if (this.smokeDetected) {
+            System.out.println("Smoke detected! Sending alert");
+            this.triggerAlarm(true);
+        } else {
+            System.out.println("No smoke detected");
+            this.triggerAlarm(false);
+        }
+
+    }
 }
