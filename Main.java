@@ -1,7 +1,8 @@
-import ConcreteDevices.SecurityCamera;
-import ConcreteDevices.SmokeDetector;
+import Creational.DetectorType;
 import Creational.DeviceBuilder;
+import Creational.DeviceFactory;
 import Creational.DeviceType;
+import Devices.IDetector;
 import Devices.IDevice;
 import FacadeImplementation.ConcreteFacades.SecuritySystem;
 import FacadeImplementation.HomeManagerFacade;
@@ -51,7 +52,7 @@ public class Main {
         System.out.println("=== Observer Pattern ===");
         SecuritySystem security = new SecuritySystem();
 
-        SmokeDetector smoke = new SmokeDetector();
+        IDetector smoke = DeviceFactory.createDetector(DetectorType.SECURITY_CAMERA);
         smoke.addObserver(new FireObserver(security));
         smoke.turnOn();
         smoke.setDetected(true);
@@ -59,7 +60,7 @@ public class Main {
 
         System.out.println();
 
-        SecurityCamera camera = new SecurityCamera();
+        IDetector camera = DeviceFactory.createDetector(DetectorType.SMOKE_DETECTOR);
         camera.addObserver(new PresenceDetectionObserver(security));
         camera.turnOn();
         camera.setDetected(true);
