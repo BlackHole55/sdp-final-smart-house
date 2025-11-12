@@ -11,9 +11,6 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     private static final String NOTHING_HAPPENED_MESSAGE = "Nothing happening";
     private final Set<Observer> observers = new HashSet<Observer>();
 
-    public BaseDetector() {
-    }
-
     public void addObserver(Observer observer) {
         this.observers.add(observer);
     }
