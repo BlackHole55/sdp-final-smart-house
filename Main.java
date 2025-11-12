@@ -54,7 +54,7 @@ public class Main {
         SmokeDetector smoke = new SmokeDetector();
         smoke.addObserver(new FireObserver(security));
         smoke.turnOn();
-        smoke.setSmokeDetected(true);
+        smoke.setDetected(true);
         smoke.detect();
 
         System.out.println();
@@ -62,7 +62,7 @@ public class Main {
         SecurityCamera camera = new SecurityCamera();
         camera.addObserver(new PresenceDetectionObserver(security));
         camera.turnOn();
-        camera.setSomeoneDetected(true);
+        camera.setDetected(true);
         camera.detect();
 
         System.out.println();
