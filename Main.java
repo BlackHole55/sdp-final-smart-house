@@ -1,7 +1,7 @@
+import Creational.Builder.LightingBuilder;
+import Creational.Builder.ThermostatBuilder;
 import ConcreteDevices.SecurityCamera;
 import ConcreteDevices.SmokeDetector;
-import Creational.DeviceBuilder;
-import Creational.DeviceType;
 import Devices.IDevice;
 import FacadeImplementation.ConcreteFacades.SecuritySystem;
 import FacadeImplementation.HomeManagerFacade;
@@ -18,12 +18,12 @@ public class Main {
         HomeManagerFacade homeManager = new HomeManagerFacade(handBook);
 
         System.out.println("=== Device Builder===");
-        IDevice light = new DeviceBuilder(DeviceType.LIGHTING)
+        IDevice light = new LightingBuilder()
                 .withPowerState(true)
                 .withBrightness(75)
                 .build();
 
-        IDevice thermostat = new DeviceBuilder(DeviceType.THERMOSTAT)
+        IDevice thermostat = new ThermostatBuilder()
                 .withPowerState(true)
                 .withTemperature(23)
                 .build();
