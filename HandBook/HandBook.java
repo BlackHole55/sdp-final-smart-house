@@ -15,6 +15,14 @@ public class HandBook {
         temperature = DEFAULT_NIGHT_TEMPERATURE;
     }
 
+    private static String THERMOSTAT_STATUS_MESSAGE = "Old Thermostat temperature: ";
+
+    public static String getThermostatStatusMessage() {
+        return THERMOSTAT_STATUS_MESSAGE;
+    }
+
+
+
 
 
 }
