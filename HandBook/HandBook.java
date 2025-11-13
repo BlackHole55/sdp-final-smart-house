@@ -15,12 +15,11 @@ public class HandBook {
         temperature = DEFAULT_NIGHT_TEMPERATURE;
     }
 
-    private static final String THERMOSTAT_STATUS_MESSAGE = "Old Thermostat temperature: ";
 
-    public static String getThermostatStatusMessage() {
-        return THERMOSTAT_STATUS_MESSAGE;
-    }
 
+    public static String thermostat_status_message = "Old Thermostat temperature: ";
+    public static int day_temperature = 22;
+    public static int night_temperature = 18;
 
 
 
