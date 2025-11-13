@@ -1,3 +1,4 @@
+import ConcreteDevices.SecurityCamera;
 import Creational.DetectorType;
 import Creational.DeviceBuilder;
 import Creational.Factory;
@@ -11,6 +12,11 @@ import HandBook.HandBook;
 import StrategyImplementation.HomeModes.NightMode;
 import StrategyImplementation.HomeModes.DayMode;
 import Observer.ConcreteObservers.*;
+import Structural.Adapter.Adapter.ThermostatAdapter;
+import Structural.Adapter.Service.OldThermostat;
+import Structural.Decorator.concrete_decorator.MotionTrackingCamera;
+import Structural.Decorator.concrete_decorator.NightVisionCamera;
+import Structural.Decorator.concrete_decorator.ZoomCamera;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,6 +76,28 @@ public class Main {
 
         System.out.println("=== Final System Status ===");
         homeManager.showStatus();
+
+        System.out.println("===  Old Thermostat  ===");
+        OldThermostat oldThermo = new OldThermostat();
+        IDevice adaptedThermo = new ThermostatAdapter(oldThermo);
+        adaptedThermo.turnOn();
+        System.out.println(adaptedThermo.showStatus());
+
+        System.out.println("\n=== Security Camera Enhancements ===");
+        IDevice baseCamera = new SecurityCamera();
+        System.out.println(baseCamera.showStatus());
+
+        baseCamera.turnOn();
+        System.out.println(baseCamera.showStatus());
+
+        IDevice zoomCamera = new ZoomCamera(baseCamera);
+        System.out.println(zoomCamera.showStatus());
+
+        IDevice nightCamera = new NightVisionCamera(zoomCamera);
+        System.out.println(nightCamera.showStatus());
+
+        IDevice fullCamera = new MotionTrackingCamera(nightCamera);
+        System.out.println(fullCamera.showStatus());
     }
 }
 

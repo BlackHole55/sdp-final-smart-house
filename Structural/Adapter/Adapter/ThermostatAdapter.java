@@ -24,7 +24,7 @@ public class ThermostatAdapter extends BaseDevice implements IDevice {
 
     @Override
     public String showStatus() {
-        return HandBook.thermostat_status_message + oldThermostat.getTempCelsius() + "C";
+        return HandBook.thermostat_status_message + oldThermostat.getTempCelsius() + " C";
     }
 }
 
