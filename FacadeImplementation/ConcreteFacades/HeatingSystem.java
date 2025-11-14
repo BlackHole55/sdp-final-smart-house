@@ -1,6 +1,7 @@
 package FacadeImplementation.ConcreteFacades;
 
 import HandBook.HandBook;
+import MessagesHandbook.Messages;
 
 public class HeatingSystem {
     private HandBook handBook;
@@ -22,7 +23,8 @@ public class HeatingSystem {
         heatingStatus = false;
     }
     public String getStatus(){
-        return "Heating system is " + (heatingStatus ? "on":"off") +
-                ", Temperature is " + handBook.getTemperature() + "C";
+        return heatingStatus 
+        ? Messages.HEATING_IS_ON + ", " + handBook.getTemperature() 
+        : Messages.HEATING_IS_OFF + ", " + handBook.getTemperature();
     }
 }

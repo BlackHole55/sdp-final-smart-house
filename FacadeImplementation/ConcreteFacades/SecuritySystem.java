@@ -2,6 +2,7 @@ package FacadeImplementation.ConcreteFacades;
 
 import ConcreteDevices.SecurityCamera;
 import ConcreteDevices.SmokeDetector;
+import MessagesHandbook.Messages;
 import Observer.ConcreteObservers.*;
 
 
@@ -38,8 +39,8 @@ public class SecuritySystem {
         alarmActive = false;
     }
     public String getStatus(){
-        return "Guard system is " + (alarmActive ? "on" : "off") +
-                ", Doors are " + (doorsLocked ? "locked" : "unlocked");
+        return (alarmActive ? Messages.ALARM_IS_ACTIVE : Messages.ALARAM_IS_DEACTIVE) + ", " + 
+        (doorsLocked ? Messages.DOORS_LOCKED : Messages.DOORS_UNLOCKED);
     }
 
 }

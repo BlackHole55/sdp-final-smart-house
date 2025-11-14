@@ -1,9 +1,10 @@
-import Creational.DetectorType;
-import Creational.DeviceBuilder;
-import Creational.Factory;
-import Creational.DeviceType;
+import Creational.Builder.LightingBuilder;
+import Creational.Builder.ThermostatBuilder;
+import Creational.Factory.SecurityCameraFactory;
+import Creational.Factory.SmokeDetectorFactory;
+import ConcreteDevices.Lighting;
+import ConcreteDevices.Thermostat;
 import Devices.IDetector;
-import Devices.IDevice;
 import FacadeImplementation.ConcreteFacades.SecuritySystem;
 import FacadeImplementation.HomeManagerFacade;
 import StrategyImplementation.HomeModes.LeavingHomeMode;
@@ -19,18 +20,20 @@ public class Main {
         HomeManagerFacade homeManager = new HomeManagerFacade(handBook);
 
         System.out.println("=== Device Builder===");
-        IDevice light = new DeviceBuilder(DeviceType.LIGHTING)
+        Lighting light = new LightingBuilder()
                 .withPowerState(true)
                 .withBrightness(75)
                 .build();
 
-        IDevice thermostat = new DeviceBuilder(DeviceType.THERMOSTAT)
+        Thermostat thermostat = new ThermostatBuilder()
                 .withPowerState(true)
                 .withTemperature(23)
                 .build();
 
         System.out.println("Lighting status: " + light.showStatus());
+        System.out.println("Lighting brightness: " + light.getBrightness());
         System.out.println("Thermostat status: " + thermostat.showStatus());
+        System.out.println("Thermostat temperature: " + thermostat.getTemperature());
         System.out.println();
 
         System.out.println("=== Home Mode Strategy ===");
@@ -51,8 +54,9 @@ public class Main {
 
         System.out.println("=== Observer Pattern ===");
         SecuritySystem security = new SecuritySystem();
-
-        IDetector smoke = Factory.createDetector(DetectorType.SECURITY_CAMERA);
+        
+        SmokeDetectorFactory smokeDetectorFactory = new SmokeDetectorFactory();
+        IDetector smoke = smokeDetectorFactory.createDetector();
         smoke.addObserver(new FireObserver(security));
         smoke.turnOn();
         smoke.setDetected(true);
@@ -60,7 +64,8 @@ public class Main {
 
         System.out.println();
 
-        IDetector camera = Factory.createDetector(DetectorType.SMOKE_DETECTOR);
+        SecurityCameraFactory securityCameraFactory = new SecurityCameraFactory();
+        IDetector camera = securityCameraFactory.createDetector();
         camera.addObserver(new PresenceDetectionObserver(security));
         camera.turnOn();
         camera.setDetected(true);

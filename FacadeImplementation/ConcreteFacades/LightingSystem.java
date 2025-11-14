@@ -1,5 +1,7 @@
 package FacadeImplementation.ConcreteFacades;
 
+import MessagesHandbook.Messages;
+
 public class LightingSystem {
     private boolean lightStatus;
 
@@ -13,7 +15,8 @@ public class LightingSystem {
         lightStatus = false;
     }
 
+    // TODO: add brightness
     public String getStatus(){
-        return "Lights are " + (lightStatus ? "on" : "off");
+        return lightStatus ? Messages.LIGHTING_IS_ON : Messages.LIGHTING_IS_OFF;
     }
 }
