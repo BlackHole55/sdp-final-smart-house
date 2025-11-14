@@ -6,6 +6,7 @@ public class Messages {
     
     public static final String LIGHTING_IS_ON = "Lighting system is on";
     public static final String LIGHTING_IS_OFF = "Lighting system is off";
+    public static final String BRIGHTNESS_VALUE_ERROR = "Brightness value should be between 0 and 100";
 
     public static final String SENDING_ALERT = "Sending alert!";
 
