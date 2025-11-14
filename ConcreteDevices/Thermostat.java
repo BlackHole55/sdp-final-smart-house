@@ -3,13 +3,13 @@ package ConcreteDevices;
 import Devices.BaseDevice;
 
 public class Thermostat extends BaseDevice{
-    private double temperature;
+    private float temperature;
 
-    public double getTemperature() {
+    public float getTemperature() {
         return this.temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
 }

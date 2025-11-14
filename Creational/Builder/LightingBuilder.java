@@ -21,7 +21,7 @@ public class LightingBuilder{
         return this;
     }
 
-    public LightingBuilder withBrightness(double brightness) {
+    public LightingBuilder withBrightness(float brightness) {
         device.setBrightness(brightness);
 
         return this;

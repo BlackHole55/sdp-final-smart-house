@@ -21,7 +21,7 @@ public class ThermostatBuilder {
         return this;
     }
 
-    public ThermostatBuilder withTemperature(double temperature) {
+    public ThermostatBuilder withTemperature(float temperature) {
         device.setTemperature(temperature);
 
         return this;
