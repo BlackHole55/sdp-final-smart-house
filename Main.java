@@ -39,15 +39,18 @@ public class Main {
         System.out.println("=== Home Mode Strategy ===");
 
         System.out.println("\n-- Switching to Day Mode --");
-        homeManager.activateMode(new DayMode());
+        DayMode dayMode1 = new DayMode();
+        homeManager.activateMode(dayMode1);
         homeManager.showStatus();
 
         System.out.println("\n-- Switching to Night Mode --");
-        homeManager.activateMode(new NightMode());
+        NightMode nightMode1 = new NightMode();
+        homeManager.activateMode(nightMode1);
         homeManager.showStatus();
 
         System.out.println("\n-- Switching to Leaving Home Mode --");
-        homeManager.activateMode(new LeavingHomeMode());
+        LeavingHomeMode leavingHomeMode1 = new LeavingHomeMode();
+        homeManager.activateMode(leavingHomeMode1);
         homeManager.showStatus();
 
         System.out.println();
