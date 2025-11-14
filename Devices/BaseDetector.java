@@ -37,6 +37,6 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     }
 
     public String alert() {
-        return this.alarm ? "Alert!" : "Nothing happening";
+        return this.alarm ? ALERT_MESSAGE : NOTHING_HAPPENED_MESSAGE;
     }
 }
