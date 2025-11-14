@@ -10,6 +10,11 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     private static final String ALERT_MESSAGE = "Alert!";
     private static final String NOTHING_HAPPENED_MESSAGE = "Nothing happening";
     private final Set<Observer> observers = new HashSet<Observer>();
+    protected boolean detected;
+
+    public void setDetected(boolean detected) {
+        this.detected = detected;
+    }
 
     public void addObserver(Observer observer) {
         this.observers.add(observer);

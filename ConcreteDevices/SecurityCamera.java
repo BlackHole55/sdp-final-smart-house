@@ -3,12 +3,6 @@ package ConcreteDevices;
 import Devices.BaseDetector;
 
 public class SecurityCamera extends BaseDetector {
-    private boolean detected;
-
-    public void setDetected(boolean detected) {
-        this.detected = detected;
-    }
-
     public void detect() {
         if (!this.isOn()) {
             System.out.println("Camera is Off");
