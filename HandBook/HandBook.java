@@ -5,6 +5,7 @@ public class HandBook {
     private static final int DEFAULT_NIGHT_TEMPERATURE = 25;
     private int temperature;
 
+    // TODO: getTemperatureCelsium
     public int getTemperature() {
         return temperature;
     }
