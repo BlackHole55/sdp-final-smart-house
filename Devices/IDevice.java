@@ -4,6 +4,5 @@ public interface IDevice {
     public void turnOn();
     public void turnOff();
     public String showStatus();
-
-
+    public boolean isOn();
 }
