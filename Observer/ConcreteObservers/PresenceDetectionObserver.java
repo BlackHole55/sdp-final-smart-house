@@ -1,20 +1,21 @@
 package Observer.ConcreteObservers;
-import Observer.ObserverSubject.Observer;
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
+import ConcreteDevices.SecurityCamera;
+import Observer.Observer;
+import MessagesHandbook.Messages;
 
 public class PresenceDetectionObserver implements Observer {
-    private SecuritySystem securitySystem;
-    public PresenceDetectionObserver(SecuritySystem securitySystem) {
-        this.securitySystem = securitySystem;
+    private SecurityCamera securityCamera;
+
+    public PresenceDetectionObserver(SecurityCamera camera) {
+        this.securityCamera = camera;
     }
 
     @Override
     public void update(String message) {
-        if (message.equals("Alert!")) {
-            System.out.println("[Camera] Someone's presence detected! Activating alarm!");
-            securitySystem.activateAlarm();
+        if (message.equals(Messages.ALERT)) {
+            securityCamera.setAlarmState(true);
         } else {
-            System.out.println("[Camera] No suspicious activity.");
+            System.out.println(Messages.SECURITY_CAMERA_NOT_DETECTED);
         }
     }
 }

@@ -1,20 +1,21 @@
 package Observer.ConcreteObservers;
 
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
-import Observer.ObserverSubject.Observer;
+import Observer.Observer;
+import ConcreteDevices.SmokeDetector;
+import MessagesHandbook.Messages;
 
 public class FireObserver implements Observer {
-    private SecuritySystem securitySystem;
-    public FireObserver(SecuritySystem securitySystem) {
-        this.securitySystem = securitySystem;
+    private SmokeDetector smokeDetector;
+
+    public FireObserver(SmokeDetector smokeDetector) {
+        this.smokeDetector = smokeDetector;
     }
     @Override
     public void update(String message) {
-        if (message.equals("Alert!")) {
-            System.out.println("[FireDetector] Smoke detected! Calling 101!");
-            securitySystem.activateAlarm();
+        if (message.equals(Messages.ALERT)) {
+            smokeDetector.setAlarmState(true);;
         } else{
-            System.out.println("No smoke detected. Clean air.");
+            System.out.println(Messages.SMOKE_NOT_DETECTED);
         }
     }
 }
