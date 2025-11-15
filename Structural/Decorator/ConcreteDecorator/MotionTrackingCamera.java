@@ -1,8 +1,8 @@
-package Structural.Decorator.concrete_decorator;
+package Structural.Decorator.ConcreteDecorator;
 
 import Devices.IDevice;
-import Structural.Decorator.base_decorator.CameraDecorator;
 import HandBook.HandBook;
+import Structural.Decorator.BaseDecorator.CameraDecorator;
 
 public class MotionTrackingCamera extends CameraDecorator {
     public MotionTrackingCamera(IDevice camera) {

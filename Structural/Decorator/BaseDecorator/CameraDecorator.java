@@ -1,4 +1,4 @@
-package Structural.Decorator.base_decorator;
+package Structural.Decorator.BaseDecorator;
 
 import Devices.BaseDevice;
 import Devices.IDevice;
