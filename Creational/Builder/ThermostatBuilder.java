@@ -4,30 +4,30 @@ import ConcreteDevices.Thermostat;
 import Creational.Factory.ThermostatFactory;
 
 public class ThermostatBuilder {
-    protected Thermostat device;
+    protected Thermostat thermostat;
 
     public ThermostatBuilder() {
         ThermostatFactory thermostatFactory = new ThermostatFactory();
-        this.device = (Thermostat) thermostatFactory.createDevice();
+        this.thermostat = (Thermostat) thermostatFactory.createDevice();
     }
 
     public ThermostatBuilder withPowerState(boolean powerState) {
         if (powerState) {
-            this.device.turnOn();
+            this.thermostat.turnOn();
         }else {
-            this.device.turnOff();
+            this.thermostat.turnOff();
         }
 
         return this;
     }
 
     public ThermostatBuilder withTemperature(float temperature) {
-        device.setTemperature(temperature);
+        thermostat.setTemperature(temperature);
 
         return this;
     }
 
     public Thermostat build() {
-        return this.device;
+        return this.thermostat;
     }
 }
