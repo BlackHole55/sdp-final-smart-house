@@ -84,20 +84,21 @@ public class Main {
         System.out.println(adaptedThermo.showStatus());
 
         System.out.println("\n=== Security Camera Enhancements ===");
+
         IDevice baseCamera = new SecurityCamera();
-        System.out.println(baseCamera.showStatus());
+        System.out.println(HandBook.camera_base_status +" " +baseCamera.showStatus());
 
         baseCamera.turnOn();
-        System.out.println(baseCamera.showStatus());
+        System.out.println(HandBook.camera_base_status +" " + baseCamera.showStatus());
 
         IDevice zoomCamera = new ZoomCamera(baseCamera);
-        System.out.println(zoomCamera.showStatus());
+        System.out.println(HandBook.camera_base_status +" " + zoomCamera.showStatus());
 
         IDevice nightCamera = new NightVisionCamera(zoomCamera);
-        System.out.println(nightCamera.showStatus());
+        System.out.println(HandBook.camera_base_status +" " + nightCamera.showStatus());
 
         IDevice fullCamera = new MotionTrackingCamera(nightCamera);
-        System.out.println(fullCamera.showStatus());
+        System.out.println(HandBook.camera_base_status +" " + fullCamera.showStatus());
     }
 }
 
