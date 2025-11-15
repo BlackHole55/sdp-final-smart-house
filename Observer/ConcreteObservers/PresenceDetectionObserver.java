@@ -1,12 +1,12 @@
 package Observer.ConcreteObservers;
-import ConcreteDevices.SecurityCamera;
+import Devices.IDetector;
 import Observer.Observer;
 import MessagesHandbook.Messages;
 
 public class PresenceDetectionObserver implements Observer {
-    private SecurityCamera securityCamera;
+    private IDetector securityCamera;
 
-    public PresenceDetectionObserver(SecurityCamera camera) {
+    public PresenceDetectionObserver(IDetector camera) {
         this.securityCamera = camera;
     }
 

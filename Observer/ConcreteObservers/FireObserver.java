@@ -1,13 +1,13 @@
 package Observer.ConcreteObservers;
 
 import Observer.Observer;
-import ConcreteDevices.SmokeDetector;
+import Devices.IDetector;
 import MessagesHandbook.Messages;
 
 public class FireObserver implements Observer {
-    private SmokeDetector smokeDetector;
+    private IDetector smokeDetector;
 
-    public FireObserver(SmokeDetector smokeDetector) {
+    public FireObserver(IDetector smokeDetector) {
         this.smokeDetector = smokeDetector;
     }
     
