@@ -1,29 +1,34 @@
 package FacadeImplementation;
 
-import FacadeImplementation.ConcreteFacades.HeatingSystem;
-import FacadeImplementation.ConcreteFacades.LightingSystem;
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
-import HandBook.HandBook;
 import StrategyImplementation.HomeModeStrategy;
+import ConcreteDevices.*;
 
 public class HomeManagerFacade {
-    private LightingSystem lights;
-    private HeatingSystem heating;
-    private SecuritySystem security;
+    private AutomaticDoors automaticDoors;
+    private Lighting lighting;
+    private SecurityCamera securityCamera;
+    private SmokeDetector smokeDetector;
+    private Thermostat thermostat; 
 
-    public HomeManagerFacade(HandBook handBook){
-        this.lights = new LightingSystem();
-        this.heating = new HeatingSystem(handBook);
-        this.security = new SecuritySystem();
+    public HomeManagerFacade(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat){
+        this.automaticDoors = doors;
+        this.lighting = light;
+        this.securityCamera = camera;
+        this.smokeDetector = smokeDetector;
+        this.thermostat = thermostat;
     }
 
     public void activateMode(HomeModeStrategy mode){
-        mode.activate(lights, heating, security);
+        mode.activate(automaticDoors, lighting, securityCamera, smokeDetector, thermostat);
     }
 
     public void showStatus(){
-        System.out.println(lights.getStatus());
-        System.out.println(heating.getStatus());
-        System.out.println(security.getStatus());
+        System.out.println(automaticDoors.showStatus());
+        System.out.println(lighting.showStatus());
+        System.out.println(thermostat.showStatus());
+        System.out.println(securityCamera.showStatus());
+        System.out.println(smokeDetector.showStatus());
+
+        
     }
 }
