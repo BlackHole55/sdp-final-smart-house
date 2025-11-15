@@ -1,12 +1,7 @@
-// import Creational.Builder.LightingBuilder;
-// import Creational.Builder.ThermostatBuilder;
 import Creational.Factory.AutomaticDoorsFactory;
 import Creational.Factory.LightingFactory;
 import Creational.Factory.SecurityCameraFactory;
 import Creational.Factory.SmokeDetectorFactory;
-
-import java.util.ArrayList;
-
 import ConcreteDevices.SecurityCamera;
 import ConcreteDevices.Thermostat;
 import Devices.IDetector;
@@ -22,6 +17,8 @@ import Structural.Adapter.Service.OldThermostat;
 import Structural.Decorator.ConcreteDecorator.MotionTrackingCamera;
 import Structural.Decorator.ConcreteDecorator.NightVisionCamera;
 import Structural.Decorator.ConcreteDecorator.ZoomCamera;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -99,7 +96,7 @@ public class Main {
 
         System.out.println();
 
-        
+
         System.out.println("\n-- Switching to Leaving Home Mode --");
         LeavingHomeMode leavingHomeMode1 = new LeavingHomeMode();
         homeManager.activateMode(leavingHomeMode1);
@@ -137,5 +134,3 @@ public class Main {
         System.out.println(HandBook.camera_base_status +" " + fullCamera.showStatus());
     }
 }
-
-
