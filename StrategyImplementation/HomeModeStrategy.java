@@ -1,8 +1,9 @@
 package StrategyImplementation;
 
-import ConcreteDevices.*;
-
+import Devices.IDetector;
+import Devices.IDevice;
+import java.util.ArrayList;
 
 public interface HomeModeStrategy {
-    void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat);
+    void activate(ArrayList<IDevice> devices, ArrayList<IDetector> detectors);
 }

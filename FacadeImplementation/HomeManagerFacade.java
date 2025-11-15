@@ -1,32 +1,32 @@
 package FacadeImplementation;
 
 import StrategyImplementation.HomeModeStrategy;
-import ConcreteDevices.*;
+
+import java.util.ArrayList;
+
+import Devices.IDetector;
+import Devices.IDevice;
 
 public class HomeManagerFacade {
-    private AutomaticDoors automaticDoors;
-    private Lighting lighting;
-    private SecurityCamera securityCamera;
-    private SmokeDetector smokeDetector;
-    private Thermostat thermostat; 
+    private ArrayList<IDevice> devices;
+    private ArrayList<IDetector> detectors;
 
-    public HomeManagerFacade(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat){
-        this.automaticDoors = doors;
-        this.lighting = light;
-        this.securityCamera = camera;
-        this.smokeDetector = smokeDetector;
-        this.thermostat = thermostat;
+    public HomeManagerFacade(ArrayList<IDevice> devices, ArrayList<IDetector> detectors) {
+        this.devices = devices;
+        this.detectors = detectors;
     }
 
     public void activateMode(HomeModeStrategy mode){
-        mode.activate(automaticDoors, lighting, securityCamera, smokeDetector, thermostat);
+        mode.activate(devices, detectors);
     }
 
     public void showStatus(){
-        System.out.println(automaticDoors.showStatus());
-        System.out.println(lighting.showStatus());
-        System.out.println(thermostat.showStatus());
-        System.out.println(securityCamera.showStatus());
-        System.out.println(smokeDetector.showStatus());
+        for (IDevice device : devices) {
+            System.out.println(device.showStatus());
+        }
+
+        for (IDetector detector : detectors) {
+            System.out.println(detector.showStatus());
+        }
     }
 }

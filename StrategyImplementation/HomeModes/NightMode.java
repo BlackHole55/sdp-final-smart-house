@@ -1,20 +1,30 @@
 package StrategyImplementation.HomeModes;
 
+import java.util.ArrayList;
+
 import ConcreteDevices.*;
+import Devices.IDetector;
+import Devices.IDevice;
 import StrategyImplementation.HomeModeStrategy;
 import HandBook.HandBook;
 
 public class NightMode implements HomeModeStrategy {
     @Override
-    public void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat) {
-        doors.turnOn();
-        light.turnOff();
-        camera.turnOn();
-        smokeDetector.turnOn();
-        thermostat.turnOn();
+    public void activate(ArrayList<IDevice> devices, ArrayList<IDetector> detectors) {
+        for (IDevice device : devices) {
+            device.turnOff();
 
-        thermostat.setTemperature(HandBook.DEFAULT_NIGHT_TEMPERATURE_CELSIUS);
+            if (device instanceof Thermostat) {
+                device.turnOn();
+                ((Thermostat)device).setTemperature(HandBook.DEFAULT_NIGHT_TEMPERATURE_CELSIUS);
+            }else if (device instanceof AutomaticDoors) {
+                device.turnOn();
+                ((AutomaticDoors)device).lockDoors();
+            }
+        }
 
-        doors.lockDoors();
+        for (IDetector detector : detectors) {
+            detector.turnOn();
+        }
     }
 }

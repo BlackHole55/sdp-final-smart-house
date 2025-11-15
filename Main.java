@@ -1,11 +1,13 @@
-import Creational.Builder.LightingBuilder;
-import Creational.Builder.ThermostatBuilder;
+// import Creational.Builder.LightingBuilder;
+// import Creational.Builder.ThermostatBuilder;
+import Creational.Factory.AutomaticDoorsFactory;
+import Creational.Factory.LightingFactory;
 import Creational.Factory.SecurityCameraFactory;
 import Creational.Factory.SmokeDetectorFactory;
-import ConcreteDevices.AutomaticDoors;
-import ConcreteDevices.Lighting;
+
+import java.util.ArrayList;
+
 import ConcreteDevices.SecurityCamera;
-import ConcreteDevices.SmokeDetector;
 import ConcreteDevices.Thermostat;
 import Devices.IDetector;
 import Devices.IDevice;
@@ -25,35 +27,45 @@ public class Main {
     public static void main(String[] args) {
         HandBook handBook = new HandBook();
 
-        System.out.println("=== Device Builder===");
+        System.out.println("=== Device Creation ===");
 
-        Lighting light1 = new LightingBuilder()
-                .withPowerState(true)
-                .build();
-        light1.setHandbook(handBook);
-        light1.setBrightness(23);
+        LightingFactory lightingFactory1 = new LightingFactory();
+        IDevice light1 = lightingFactory1.createDevice(handBook);
 
-        Thermostat thermostat1 = new ThermostatBuilder()
-                .withPowerState(true)
-                .build();
-        thermostat1.setHandbook(handBook);
-        thermostat1.setTemperature(50);
+        IDevice thermostat1 = new Thermostat
+            .Builder(handBook)
+            .withPowerState(true)
+            .withTemperature(25)
+            .build();
+
+        AutomaticDoorsFactory automaticDoorsFactory1 = new AutomaticDoorsFactory();
+        IDevice automaticDoors1 = automaticDoorsFactory1.createDevice(handBook);
+
+        SmokeDetectorFactory smokeDetectorFactory1 = new SmokeDetectorFactory();
+        IDetector smokeDetector1 = smokeDetectorFactory1.createDetector();
+        
+        SecurityCameraFactory securityCameraFactory1 = new SecurityCameraFactory();
+        IDetector camera1 = securityCameraFactory1.createDetector();
 
         System.out.println(light1.showStatus());
         System.out.println(thermostat1.showStatus());
+        System.out.println(automaticDoors1.showStatus());
+        System.out.println(smokeDetector1.showStatus());
+        System.out.println(camera1.showStatus());
         System.out.println();
 
-        AutomaticDoors doors1 = new AutomaticDoors();
-        SmokeDetectorFactory smokeDetectorFactory = new SmokeDetectorFactory();
-        IDetector smokeDetector1 = smokeDetectorFactory.createDetector();
-        SmokeDetector smokeDetectorCon1 = (SmokeDetector) smokeDetector1;
-
-        SecurityCameraFactory securityCameraFactory = new SecurityCameraFactory();
-        IDetector camera1 = securityCameraFactory.createDetector();
-        SecurityCamera cameraCon1 = (SecurityCamera) camera1;
-
         System.out.println("=== Home Mode Strategy ===");
-        HomeManagerFacade homeManager = new HomeManagerFacade(doors1, light1, cameraCon1, smokeDetectorCon1, thermostat1);
+        ArrayList<IDevice> devices = new ArrayList<>();
+        ArrayList<IDetector> detectors = new ArrayList<>();
+
+        devices.add(thermostat1);
+        devices.add(light1);
+        devices.add(automaticDoors1);
+        
+        detectors.add(smokeDetector1);
+        detectors.add(camera1);
+
+        HomeManagerFacade homeManager = new HomeManagerFacade(devices, detectors);
 
         System.out.println("\n-- Switching to Day Mode --");
         DayMode dayMode1 = new DayMode();
@@ -68,17 +80,17 @@ public class Main {
         System.out.println();
         System.out.println("=== Testing Detectors (Observer Pattern) ===");
         
-        smokeDetector1.addObserver(new FireObserver(smokeDetectorCon1));
-        smokeDetector1.turnOn();
-        smokeDetector1.setDetected(true);
-        smokeDetector1.detect();
+        // smokeDetector1.addObserver(new FireObserver(smokeDetectorCon1));
+        // smokeDetector1.turnOn();
+        // smokeDetector1.setDetected(true);
+        // smokeDetector1.detect();
 
-        System.out.println();
+        // System.out.println();
 
-        camera1.addObserver(new PresenceDetectionObserver(cameraCon1));
-        camera1.turnOn();
-        camera1.setDetected(true);
-        camera1.detect();
+        // camera1.addObserver(new PresenceDetectionObserver(cameraCon1));
+        // camera1.turnOn();
+        // camera1.setDetected(true);
+        // camera1.detect();
 
         System.out.println();
 

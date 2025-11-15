@@ -1,18 +1,28 @@
 package StrategyImplementation.HomeModes;
 
 import StrategyImplementation.HomeModeStrategy;
+
+import java.util.ArrayList;
+
 import ConcreteDevices.*;
+import Devices.IDetector;
+import Devices.IDevice;
 
 public class LeavingHomeMode implements HomeModeStrategy {
     @Override
-    public void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat) {
-        doors.turnOn();
-        light.turnOff();
-        camera.turnOn();
-        smokeDetector.turnOn();
-        thermostat.turnOff();
+    public void activate(ArrayList<IDevice> devices, ArrayList<IDetector> detectors) {
+        for (IDevice device : devices) {
+            device.turnOff();
 
-        doors.lockDoors();
+            if (device instanceof AutomaticDoors) {
+                device.turnOn();
+                ((AutomaticDoors)device).lockDoors();
+            }
+        }
+
+        for (IDetector detector : detectors) {
+            detector.turnOn();
+        }
     }
 
 }

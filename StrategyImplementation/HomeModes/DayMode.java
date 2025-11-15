@@ -1,21 +1,29 @@
 package StrategyImplementation.HomeModes;
 
+import java.util.ArrayList;
+
 import ConcreteDevices.*;
+import Devices.IDetector;
+import Devices.IDevice;
 import HandBook.HandBook;
 import StrategyImplementation.HomeModeStrategy;
 
 public class DayMode implements HomeModeStrategy {
     @Override
-    public void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat) {
-        doors.turnOn();
-        light.turnOn();
-        camera.turnOn();
-        smokeDetector.turnOn();
-        thermostat.turnOn();
+    public void activate(ArrayList<IDevice> devices, ArrayList<IDetector> detectors) {
+        for (IDevice device : devices) {
+            device.turnOn();
 
-        thermostat.setTemperature(HandBook.DEFAULT_DAY_TEMPERATURE_CELSIUS);
+            if (device instanceof Thermostat) {
+                ((Thermostat)device).setTemperature(HandBook.DEFAULT_DAY_TEMPERATURE_CELSIUS);
+            }else if (device instanceof AutomaticDoors) {
+                ((AutomaticDoors)device).unLockDoors();
+            }
+        }
 
-        doors.unLockDoors();
+        for (IDetector detector : detectors) {
+            detector.turnOn();
+        }
     }
 
 }
