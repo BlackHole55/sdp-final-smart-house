@@ -1,8 +1,9 @@
 package Structural.Decorator.base_decorator;
 
+import Devices.BaseDevice;
 import Devices.IDevice;
 
-public abstract class CameraDecorator implements IDevice {
+public abstract class CameraDecorator extends BaseDevice {
     protected IDevice decoratedCamera;
 
     public CameraDecorator(IDevice camera) {
