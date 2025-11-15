@@ -27,6 +27,7 @@ public class Main {
     public static void main(String[] args) {
         HandBook handBook = new HandBook();
 
+
         System.out.println("=== Device Creation ===");
 
         LightingFactory lightingFactory1 = new LightingFactory();
@@ -54,6 +55,7 @@ public class Main {
         System.out.println(camera1.showStatus());
         System.out.println();
 
+
         System.out.println("=== Home Mode Strategy ===");
         ArrayList<IDevice> devices = new ArrayList<>();
         ArrayList<IDetector> detectors = new ArrayList<>();
@@ -78,22 +80,26 @@ public class Main {
         homeManager.showStatus();
 
         System.out.println();
+
+
         System.out.println("=== Testing Detectors (Observer Pattern) ===");
-        
-        // smokeDetector1.addObserver(new FireObserver(smokeDetectorCon1));
-        // smokeDetector1.turnOn();
-        // smokeDetector1.setDetected(true);
-        // smokeDetector1.detect();
-
-        // System.out.println();
-
-        // camera1.addObserver(new PresenceDetectionObserver(cameraCon1));
-        // camera1.turnOn();
-        // camera1.setDetected(true);
-        // camera1.detect();
+        FireObserver fireObserver1 = new FireObserver(smokeDetector1);
+        smokeDetector1.addObserver(fireObserver1);
+        smokeDetector1.turnOn();
+        smokeDetector1.setDetected(true);
+        smokeDetector1.detect();
 
         System.out.println();
 
+        PresenceDetectionObserver presenceDetectionObserver1 = new PresenceDetectionObserver(camera1);
+        camera1.addObserver(presenceDetectionObserver1);
+        camera1.turnOn();
+        camera1.setDetected(true);
+        camera1.detect();
+
+        System.out.println();
+
+        
         System.out.println("\n-- Switching to Leaving Home Mode --");
         LeavingHomeMode leavingHomeMode1 = new LeavingHomeMode();
         homeManager.activateMode(leavingHomeMode1);
@@ -101,14 +107,17 @@ public class Main {
 
         System.out.println();
 
+
         System.out.println("=== Final System Status ===");
         homeManager.showStatus();
+
 
         System.out.println("===  Old Thermostat  ===");
         OldThermostat oldThermo = new OldThermostat();
         IDevice adaptedThermo = new ThermostatAdapter(oldThermo);
         adaptedThermo.turnOn();
         System.out.println(adaptedThermo.showStatus());
+
 
         System.out.println("\n=== Security Camera Enhancements ===");
 
