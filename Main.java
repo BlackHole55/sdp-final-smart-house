@@ -17,9 +17,9 @@ import StrategyImplementation.HomeModes.DayMode;
 import Observer.ConcreteObservers.*;
 import Structural.Adapter.Adapter.ThermostatAdapter;
 import Structural.Adapter.Service.OldThermostat;
-import Structural.Decorator.concrete_decorator.MotionTrackingCamera;
-import Structural.Decorator.concrete_decorator.NightVisionCamera;
-import Structural.Decorator.concrete_decorator.ZoomCamera;
+import Structural.Decorator.ConcreteDecorator.MotionTrackingCamera;
+import Structural.Decorator.ConcreteDecorator.NightVisionCamera;
+import Structural.Decorator.ConcreteDecorator.ZoomCamera;
 
 public class Main {
     public static void main(String[] args) {
