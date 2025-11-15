@@ -4,6 +4,8 @@ import Devices.BaseDetector;
 import MessagesHandbook.Messages;
 
 public class SmokeDetector extends BaseDetector{
+    
+    @Override
     public void detect() {
         if (this.detected) {
             System.out.println(Messages.SMOKE_DETECTED + " " + Messages.SENDING_ALERT);
@@ -12,6 +14,11 @@ public class SmokeDetector extends BaseDetector{
             System.out.println(Messages.SMOKE_NOT_DETECTED);
             this.triggerAlarm(false);
         }
+    }
 
+    @Override
+    public String showStatus(){
+        return (powerState ? Messages.SMOKE_DETECTOR_IS_ON : Messages.SMOKE_DETECTOR_IS_OFF) + ", " +
+                (detected ? Messages.ALERT : Messages.NOTHING_DETECTED);
     }
 }

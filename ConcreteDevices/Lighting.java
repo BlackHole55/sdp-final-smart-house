@@ -2,19 +2,37 @@ package ConcreteDevices;
 
 import Devices.BaseDevice;
 import MessagesHandbook.Messages;
+import HandBook.HandBook;
 
 public class Lighting extends BaseDevice{
-    private float brightness;
+    private HandBook handBook;
 
-    public float getBrightness() {
-        return this.brightness;
+    public Lighting(HandBook handBook){
+        this.handBook = handBook;
+    }
+    public Lighting(){
+
     }
 
-    public void setBrightness(float brightness) {
+    public void setHandbook(HandBook handBook){
+        this.handBook = handBook;
+    }
+
+    public int getBrightness() {
+        return handBook.getBrightness();
+    }
+
+
+    public void setBrightness(int brightness) {
         if (brightness >= 0 && brightness <= 100) {
-            this.brightness = brightness;
+            handBook.setBrightness(brightness);
         }else {
             System.out.println(Messages.BRIGHTNESS_VALUE_ERROR);
         }
+    }
+
+    @Override
+    public String showStatus(){
+        return (powerState ? (Messages.LIGHTING_IS_ON + ", " + handBook.getBrightness()) : (Messages.LIGHTING_IS_OFF));
     }
 }
