@@ -1,9 +1,8 @@
 package Devices;
 
-import Observer.ObserverSubject.Observer;
+import Observer.Observer;
 
 public interface IDetector extends IDevice {
-    public String alert();
     public void detect();
     public void setDetected(boolean detected);
     public void addObserver(Observer observer);

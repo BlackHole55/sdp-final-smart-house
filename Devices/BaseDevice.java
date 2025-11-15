@@ -1,9 +1,7 @@
 package Devices;
 
 public abstract class BaseDevice implements IDevice {
-    private boolean powerState;
-    private final String POWER_ON = "On";
-    private final String POWER_OFF = "Off"; 
+    protected boolean powerState;
 
     public void turnOn() {
         powerState = true;
@@ -13,13 +11,7 @@ public abstract class BaseDevice implements IDevice {
         powerState = false;
     }
 
-    public String showStatus() {
-        if (powerState) {
-            return POWER_ON;
-        }else {
-            return POWER_OFF;
-        }
-    }
+  
     
     public boolean isOn(){
         return powerState;

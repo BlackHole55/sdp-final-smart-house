@@ -1,19 +1,25 @@
 package Devices;
 
-import Observer.ObserverSubject.Observer;
-
 import java.util.HashSet;
 import java.util.Set;
 
+import Observer.Observer;
+import MessagesHandbook.Messages;
+
 public abstract class BaseDetector extends BaseDevice implements IDetector{
-    private boolean alarm;
-    private static final String ALERT_MESSAGE = "Alert!";
-    private static final String NOTHING_HAPPENED_MESSAGE = "Nothing happening";
-    private final Set<Observer> observers = new HashSet<Observer>();
+
+    private Set<Observer> observers = new HashSet<Observer>();
     protected boolean detected;
+    protected boolean alarmState;
 
     public void setDetected(boolean detected) {
         this.detected = detected;
+    }
+    public void setAlarmState(boolean alarmActive){
+        if(detected && alarmActive) {
+            alarmState = true;}
+        else {
+            alarmState = false;}
     }
 
     public void addObserver(Observer observer) {
@@ -28,20 +34,18 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
         for(Observer observer : this.observers) {
             observer.update(message);
         }
-
     }
 
     protected void triggerAlarm(boolean alarmState) {
-        this.alarm = alarmState;
-        if (this.alarm) {
-            this.notifyObservers(ALERT_MESSAGE);
+  
+        if (alarmState) {
+            this.notifyObservers(Messages.ALERT);
         } else {
-            this.notifyObservers(NOTHING_HAPPENED_MESSAGE);
+            this.notifyObservers(Messages.NOTHING_DETECTED);
         }
 
     }
 
-    public String alert() {
-        return this.alarm ? ALERT_MESSAGE : NOTHING_HAPPENED_MESSAGE;
-    }
+    
+    
 }
