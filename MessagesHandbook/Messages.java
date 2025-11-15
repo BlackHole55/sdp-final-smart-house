@@ -9,15 +9,20 @@ public class Messages {
     public static final String BRIGHTNESS_VALUE_ERROR = "Brightness value should be between 0 and 100";
 
     public static final String SENDING_ALERT = "Sending alert!";
+    public static final String ALERT = "Alert!";
+    public static final String NOTHING_DETECTED = "Nothing suspecious detected. Environment normal.";
+    
 
     public static final String SECURITY_CAMERA_IS_ON = "Security camera is on";
     public static final String SECURITY_CAMERA_IS_OFF = "Security camera is off";
     public static final String SECURITY_CAMERA_SCANING = "Security camera is scanning";
-    public static final String SECURITY_CAMERA_DETECTED = "Camera detected someone's presence!";
-    public static final String SECURITY_CAMERA_NOT_DETECTED = "No presence detected";
+    public static final String SECURITY_CAMERA_DETECTED = "[Camera] Someone's presence detected!";
+    public static final String SECURITY_CAMERA_NOT_DETECTED = "[Camera] No suspicious activity.";
 
-    public static final String SMOKE_DETECTED = "Smoke detected! Sending alert";
-    public static final String SMOKE_NOT_DETECTED = "No smoke detected";
+    public static final String SMOKE_DETECTOR_IS_ON = "Smoke detector is on";
+    public static final String SMOKE_DETECTOR_IS_OFF = "Smoke detector is off";
+    public static final String SMOKE_DETECTED = "[FireDetector] Smoke detected! Calling 101!";
+    public static final String SMOKE_NOT_DETECTED = "[FireDetector] No smoke detected. Clean air.";
 
     public static final String ALARM_IS_ACTIVE = "Alarms are activated";
     public static final String ALARAM_IS_DEACTIVE = "Alarms are deactivated";
