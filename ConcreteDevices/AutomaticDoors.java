@@ -3,12 +3,13 @@ package ConcreteDevices;
 import Devices.BaseDevice;
 import MessagesHandbook.Messages;
 
-public class AutomaticDoors extends BaseDevice{
+public class AutomaticDoors extends BaseDevice {
     private boolean doorsLocked;
 
     public void lockDoors(){
         doorsLocked = true;
     }
+    
     public void unLockDoors(){
         doorsLocked = false;
     }

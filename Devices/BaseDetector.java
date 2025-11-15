@@ -6,8 +6,7 @@ import java.util.Set;
 import Observer.Observer;
 import MessagesHandbook.Messages;
 
-public abstract class BaseDetector extends BaseDevice implements IDetector{
-
+public abstract class BaseDetector extends BaseDevice implements IDetector {
     private Set<Observer> observers = new HashSet<Observer>();
     protected boolean detected;
     protected boolean alarmState;
@@ -15,6 +14,7 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
     public void setDetected(boolean detected) {
         this.detected = detected;
     }
+
     public void setAlarmState(boolean alarmActive){
         if(detected && alarmActive) {
             alarmState = true;}
@@ -45,7 +45,4 @@ public abstract class BaseDetector extends BaseDevice implements IDetector{
         }
 
     }
-
-    
-    
 }

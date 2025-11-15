@@ -29,5 +29,4 @@ public class Messages {
 
     public static final String DOORS_LOCKED = "Doors are locked";
     public static final String DOORS_UNLOCKED = "Doors are unclocked";
-    
 }

@@ -4,15 +4,14 @@ import Devices.BaseDevice;
 import MessagesHandbook.Messages;
 import HandBook.HandBook;
 
-public class Lighting extends BaseDevice{
+public class Lighting extends BaseDevice {
     private HandBook handBook;
 
     public Lighting(HandBook handBook){
         this.handBook = handBook;
     }
-    public Lighting(){
 
-    }
+    public Lighting(){ }
 
     public void setHandbook(HandBook handBook){
         this.handBook = handBook;
@@ -21,7 +20,6 @@ public class Lighting extends BaseDevice{
     public int getBrightness() {
         return handBook.getBrightness();
     }
-
 
     public void setBrightness(int brightness) {
         if (brightness >= 0 && brightness <= 100) {

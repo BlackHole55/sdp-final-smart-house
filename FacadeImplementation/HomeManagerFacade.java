@@ -28,7 +28,5 @@ public class HomeManagerFacade {
         System.out.println(thermostat.showStatus());
         System.out.println(securityCamera.showStatus());
         System.out.println(smokeDetector.showStatus());
-
-        
     }
 }

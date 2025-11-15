@@ -4,7 +4,6 @@ import Devices.BaseDetector;
 import MessagesHandbook.Messages;
 
 public class SecurityCamera extends BaseDetector {
-   
     @Override
     public void detect() {
         if (this.detected) {
@@ -16,7 +15,6 @@ public class SecurityCamera extends BaseDetector {
         }
     }
 
-  
     @Override
     public String showStatus(){
         return (powerState ? Messages.SECURITY_CAMERA_IS_ON : Messages.SECURITY_CAMERA_IS_OFF) + ", " +

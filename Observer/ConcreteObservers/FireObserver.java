@@ -10,6 +10,7 @@ public class FireObserver implements Observer {
     public FireObserver(SmokeDetector smokeDetector) {
         this.smokeDetector = smokeDetector;
     }
+    
     @Override
     public void update(String message) {
         if (message.equals(Messages.ALERT)) {

@@ -10,8 +10,6 @@ public abstract class BaseDevice implements IDevice {
     public void turnOff() {
         powerState = false;
     }
-
-  
     
     public boolean isOn(){
         return powerState;

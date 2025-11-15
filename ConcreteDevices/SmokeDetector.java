@@ -4,7 +4,6 @@ import Devices.BaseDetector;
 import MessagesHandbook.Messages;
 
 public class SmokeDetector extends BaseDetector{
-    
     @Override
     public void detect() {
         if (this.detected) {
