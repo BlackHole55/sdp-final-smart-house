@@ -1,9 +1,8 @@
 package StrategyImplementation;
 
-import FacadeImplementation.ConcreteFacades.HeatingSystem;
-import FacadeImplementation.ConcreteFacades.LightingSystem;
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
+import ConcreteDevices.*;
+
 
 public interface HomeModeStrategy {
-    void activate(LightingSystem light, HeatingSystem heating, SecuritySystem security);
+    void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat);
 }

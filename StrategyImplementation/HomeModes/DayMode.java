@@ -1,18 +1,22 @@
 package StrategyImplementation.HomeModes;
 
-import FacadeImplementation.ConcreteFacades.HeatingSystem;
-import FacadeImplementation.ConcreteFacades.LightingSystem;
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
+import ConcreteDevices.*;
+import HandBook.HandBook;
 import StrategyImplementation.HomeModeStrategy;
 
 public class DayMode implements HomeModeStrategy {
     @Override
-    public void activate(LightingSystem light, HeatingSystem heating, SecuritySystem security){
+    public void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat){
         light.turnOn();
-        heating.turnOn();
-        heating.setDayTemperature();
-        security.deactivateAlarm();
-        security.unLockDoors();
+        doors.turnOn();
+        camera.turnOn();
+        smokeDetector.turnOn();
+        thermostat.turnOn();
+        thermostat.setTemperature(HandBook.DEFAULT_DAY_TEMPERATURE_CELSIUS);
+
+        doors.unLockDoors();
+        
+    
     }
 
 }

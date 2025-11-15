@@ -1,19 +1,21 @@
 package StrategyImplementation.HomeModes;
 
-import FacadeImplementation.ConcreteFacades.HeatingSystem;
-import FacadeImplementation.ConcreteFacades.LightingSystem;
-import FacadeImplementation.ConcreteFacades.SecuritySystem;
+import ConcreteDevices.*;
 import StrategyImplementation.HomeModeStrategy;
+import HandBook.HandBook;
 
 public class NightMode implements HomeModeStrategy {
     @Override
-    public void activate(LightingSystem light, HeatingSystem heating, SecuritySystem security){
+    public void activate(AutomaticDoors doors, Lighting light, SecurityCamera camera, SmokeDetector smokeDetector, Thermostat thermostat){
         light.turnOff();
-        heating.turnOn();
-        heating.setNightTemperature();
-        security.activateAlarm();
-        security.lockDoors();
-    }
+        doors.turnOn();
+        camera.turnOn();
+        smokeDetector.turnOn();
+        thermostat.turnOn();
 
+        doors.lockDoors();
+        thermostat.setTemperature(HandBook.DEFAULT_NIGHT_TEMPERATURE_CELSIUS);
+    
+    }
 
 }
