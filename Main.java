@@ -2,7 +2,6 @@ import Creational.Factory.AutomaticDoorsFactory;
 import Creational.Factory.LightingFactory;
 import Creational.Factory.SecurityCameraFactory;
 import Creational.Factory.SmokeDetectorFactory;
-import ConcreteDevices.SecurityCamera;
 import ConcreteDevices.Thermostat;
 import Devices.IDetector;
 import Devices.IDevice;
