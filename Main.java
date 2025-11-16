@@ -5,24 +5,25 @@ import Creational.Factory.SmokeDetectorFactory;
 import ConcreteDevices.Thermostat;
 import Devices.IDetector;
 import Devices.IDevice;
-import FacadeImplementation.HomeManagerFacade;
-import StrategyImplementation.HomeModes.LeavingHomeMode;
-import HandBook.HandBook;
-import StrategyImplementation.HomeModes.NightMode;
-import StrategyImplementation.HomeModes.DayMode;
-import Observer.ConcreteObservers.*;
+import HandBook.HandBookValues;
+import HandBook.Messages;
 import Structural.Adapter.Adapter.ThermostatAdapter;
 import Structural.Adapter.Service.OldThermostat;
 import Structural.Decorator.ConcreteDecorator.MotionTrackingCamera;
 import Structural.Decorator.ConcreteDecorator.NightVisionCamera;
 import Structural.Decorator.ConcreteDecorator.ZoomCamera;
-import MessagesHandbook.Messages;
+import Structural.Facade.HomeManagerFacade;
 
 import java.util.ArrayList;
 
+import Behavioral.Observer.ConcreteObservers.*;
+import Behavioral.Strategy.HomeModes.DayMode;
+import Behavioral.Strategy.HomeModes.LeavingHomeMode;
+import Behavioral.Strategy.HomeModes.NightMode;
+
 public class Main {
     public static void main(String[] args) {
-        HandBook handBook = new HandBook();
+        HandBookValues handBook = new HandBookValues();
 
 
         System.out.println("=== Device Creation ===");
