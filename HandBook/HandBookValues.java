@@ -1,6 +1,6 @@
 package HandBook;
 
-public class HandBook {
+public class HandBookValues {
     public static final float DEFAULT_DAY_TEMPERATURE_CELSIUS= 22;
     public static final float DEFAULT_NIGHT_TEMPERATURE_CELSIUS = 25;
     public static final String CELSIUS_STRING = "°C";

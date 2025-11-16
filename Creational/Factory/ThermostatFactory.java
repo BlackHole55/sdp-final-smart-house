@@ -2,15 +2,15 @@ package Creational.Factory;
 
 import ConcreteDevices.Thermostat;
 import Devices.IDevice;
-import HandBook.HandBook;
+import HandBook.HandBookValues;
 
 public class ThermostatFactory extends DeviceFactory {
     @Override
-    public IDevice createDevice(HandBook handBook) {
+    public IDevice createDevice(HandBookValues handBook) {
         return new Thermostat
             .Builder(handBook)
             .withPowerState(false)
-            .withTemperature(HandBook.DEFAULT_DAY_TEMPERATURE_CELSIUS)
+            .withTemperature(HandBookValues.DEFAULT_DAY_TEMPERATURE_CELSIUS)
             .build();
     }
 }

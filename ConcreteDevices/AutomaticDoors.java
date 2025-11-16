@@ -1,7 +1,7 @@
 package ConcreteDevices;
 
 import Devices.BaseDevice;
-import MessagesHandbook.Messages;
+import HandBook.Messages;
 
 public class AutomaticDoors extends BaseDevice {
     private boolean doorsLocked;

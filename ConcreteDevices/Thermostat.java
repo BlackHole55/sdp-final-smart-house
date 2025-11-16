@@ -1,19 +1,19 @@
 package ConcreteDevices;
 
 import Devices.BaseDevice;
-import MessagesHandbook.Messages;
-import HandBook.HandBook;
+import HandBook.HandBookValues;
+import HandBook.Messages;
 
 public class Thermostat extends BaseDevice{
-    private HandBook handBook;
+    private HandBookValues handBook;
 
     // Private constructor to enforce builder usage
-    private Thermostat(HandBook handBook, Builder builder){
+    private Thermostat(HandBookValues handBook, Builder builder){
         this.handBook = handBook;
         this.powerState = builder.powerState;
     }
 
-    public void setHandbook(HandBook handBook){
+    public void setHandbook(HandBookValues handBook){
         this.handBook = handBook;
     }
 
@@ -32,10 +32,10 @@ public class Thermostat extends BaseDevice{
     }
 
     public static class Builder {
-        private HandBook handBook;
+        private HandBookValues handBook;
         private boolean powerState = true;
 
-        public Builder(HandBook handBook) {
+        public Builder(HandBookValues handBook) {
             this.handBook = handBook;
         }
 

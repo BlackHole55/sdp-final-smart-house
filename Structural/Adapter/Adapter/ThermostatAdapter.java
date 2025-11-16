@@ -2,8 +2,8 @@ package Structural.Adapter.Adapter;
 
 import Devices.IDevice;
 import Structural.Adapter.Service.OldThermostat;
-import HandBook.HandBook;
-import MessagesHandbook.Messages;
+import HandBook.HandBookValues;
+import HandBook.Messages;
 
 public class ThermostatAdapter implements IDevice {
     private OldThermostat oldThermostat;
@@ -14,19 +14,19 @@ public class ThermostatAdapter implements IDevice {
 
     @Override
     public void turnOn() {
-        oldThermostat.setTempCelsius(HandBook.DEFAULT_DAY_TEMPERATURE_CELSIUS);
+        oldThermostat.setTempCelsius(HandBookValues.DEFAULT_DAY_TEMPERATURE_CELSIUS);
     }
 
     @Override
     public void turnOff() {
-        oldThermostat.setTempCelsius(HandBook.DEFAULT_NIGHT_TEMPERATURE_CELSIUS );
+        oldThermostat.setTempCelsius(HandBookValues.DEFAULT_NIGHT_TEMPERATURE_CELSIUS );
     }
 
     @Override
     public String showStatus() {
         return Messages.THERMOSTAT_STATUS_MESSAGE
                 + oldThermostat.getTempCelsius()
-                + HandBook.CELSIUS_STRING;
+                + HandBookValues.CELSIUS_STRING;
     }
     @Override
     public boolean isOn() {

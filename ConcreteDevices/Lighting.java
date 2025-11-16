@@ -1,21 +1,21 @@
 package ConcreteDevices;
 
 import Devices.BaseDevice;
-import MessagesHandbook.Messages;
-import HandBook.HandBook;
+import HandBook.HandBookValues;
+import HandBook.Messages;
 
 public class Lighting extends BaseDevice {
-    private HandBook handBook;
+    private HandBookValues handBook;
     private static final int MIN_BRIGHTNESS = 0;
     private static final int MAX_BRIGHTNESS = 100;
 
     // Private constructor to enforce builder usage
-    private Lighting(HandBook handBook, Builder builder){
+    private Lighting(HandBookValues handBook, Builder builder){
         this.handBook = handBook;
         this.powerState = builder.powerState;
     }
 
-    public void setHandbook(HandBook handBook){
+    public void setHandbook(HandBookValues handBook){
         this.handBook = handBook;
     }
 
@@ -37,10 +37,10 @@ public class Lighting extends BaseDevice {
     }
 
     public static class Builder {
-        private HandBook handBook;
+        private HandBookValues handBook;
         private boolean powerState = true;
 
-        public Builder(HandBook handBook) {
+        public Builder(HandBookValues handBook) {
             this.handBook = handBook;
         }
 

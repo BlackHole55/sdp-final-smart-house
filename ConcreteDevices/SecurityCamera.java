@@ -1,7 +1,7 @@
 package ConcreteDevices;
 
 import Devices.BaseDetector;
-import MessagesHandbook.Messages;
+import HandBook.Messages;
 
 public class SecurityCamera extends BaseDetector {
     @Override

@@ -2,11 +2,11 @@ package Creational.Factory;
 
 import ConcreteDevices.AutomaticDoors;
 import Devices.IDevice;
-import HandBook.HandBook;
+import HandBook.HandBookValues;
 
 public class AutomaticDoorsFactory extends DeviceFactory {
     @Override
-    public IDevice createDevice(HandBook handBook) {
+    public IDevice createDevice(HandBookValues handBook) {
         return new AutomaticDoors();
     }
 }

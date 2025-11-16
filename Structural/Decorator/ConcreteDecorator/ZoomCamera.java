@@ -1,7 +1,7 @@
 package Structural.Decorator.ConcreteDecorator;
 
 import Devices.IDevice;
-import MessagesHandbook.Messages;
+import HandBook.Messages;
 import Structural.Decorator.BaseDecorator.CameraDecorator;
 
 public class ZoomCamera extends CameraDecorator {

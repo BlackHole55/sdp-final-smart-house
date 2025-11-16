@@ -1,4 +1,4 @@
-package MessagesHandbook;
+package HandBook;
 
 public class Messages {
     public static final String HEATING_IS_ON = "Heating system is on";
