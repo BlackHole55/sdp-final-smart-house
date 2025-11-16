@@ -7,6 +7,7 @@ public class SecurityCamera extends BaseDetector {
     @Override
     public void detect() {
         if (this.detected) {
+            //this message reports what sensor detects
             System.out.println(Messages.SECURITY_CAMERA_DETECTED + " " + Messages.SENDING_ALERT);
             this.triggerAlarm(true);
         } else {

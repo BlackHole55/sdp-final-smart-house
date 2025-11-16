@@ -7,6 +7,7 @@ public class SmokeDetector extends BaseDetector{
     @Override
     public void detect() {
         if (this.detected) {
+            //this message reports what sensor detects
             System.out.println(Messages.SMOKE_DETECTED + " " + Messages.SENDING_ALERT);
             this.triggerAlarm(true);
         } else {
@@ -18,6 +19,6 @@ public class SmokeDetector extends BaseDetector{
     @Override
     public String showStatus(){
         return (powerState ? Messages.SMOKE_DETECTOR_IS_ON : Messages.SMOKE_DETECTOR_IS_OFF) + ", " +
-                (detected ? Messages.ALERT : Messages.NOTHING_DETECTED);
+                (alarmState ? Messages.ALERT : Messages.NOTHING_DETECTED);
     }
 }
