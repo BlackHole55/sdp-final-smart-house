@@ -7,7 +7,7 @@ public class OldThermostat {
         this.tempCelsius = temp; 
     }
 
-    public double getTempCelsius() {
+    public float getTempCelsius() {
         return tempCelsius; 
     }
 }
