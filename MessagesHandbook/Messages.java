@@ -21,11 +21,14 @@ public class Messages {
 
     public static final String SMOKE_DETECTOR_IS_ON = "Smoke detector is on";
     public static final String SMOKE_DETECTOR_IS_OFF = "Smoke detector is off";
-    public static final String SMOKE_DETECTED = "[FireDetector] Smoke detected! Calling 101!";
-    public static final String SMOKE_NOT_DETECTED = "[FireDetector] No smoke detected. Clean air.";
+    public static final String SMOKE_DETECTED = "[SmokeDetector] Smoke detected!";
+    public static final String SMOKE_NOT_DETECTED = "[SmokeDetector] No smoke detected. Clean air.";
 
     public static final String ALARM_IS_ACTIVE = "Alarms are activated";
     public static final String ALARAM_IS_DEACTIVE = "Alarms are deactivated";
+
+    public static final String FIRE_OBSERVER_REPORT = "Smoke Detecter has detected Smoke! Calling 101!";
+    public static final String PRESENCE_OBSERVER_REPORT = "Security Camera has detected someone's presence! Check your house!";
 
     public static final String DOORS_LOCKED = "Doors are locked";
     public static final String DOORS_UNLOCKED = "Doors are unclocked";
