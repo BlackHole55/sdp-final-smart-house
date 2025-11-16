@@ -1,9 +1,8 @@
-package FacadeImplementation;
-
-import StrategyImplementation.HomeModeStrategy;
+package Structural.Facade;
 
 import java.util.ArrayList;
 
+import Behavioral.Strategy.IHomeModeStrategy;
 import Devices.IDetector;
 import Devices.IDevice;
 
@@ -16,7 +15,7 @@ public class HomeManagerFacade {
         this.detectors = detectors;
     }
 
-    public void activateMode(HomeModeStrategy mode){
+    public void activateMode(IHomeModeStrategy mode){
         mode.activate(devices, detectors);
     }
 
