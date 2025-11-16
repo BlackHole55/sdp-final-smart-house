@@ -80,15 +80,14 @@ public class Main {
 
 
         System.out.println("=== Testing Detectors (Observer Pattern) ===");
-        FireObserver fireObserver1 = new FireObserver(smokeDetector1);
+        System.out.println();
+        FireObserver fireObserver1 = new FireObserver();
         smokeDetector1.addObserver(fireObserver1);
         smokeDetector1.turnOn();
         smokeDetector1.setDetected(true);
         smokeDetector1.detect();
 
-        System.out.println();
-
-        PresenceDetectionObserver presenceDetectionObserver1 = new PresenceDetectionObserver(camera1);
+        PresenceDetectionObserver presenceDetectionObserver1 = new PresenceDetectionObserver();
         camera1.addObserver(presenceDetectionObserver1);
         camera1.turnOn();
         camera1.setDetected(true);
@@ -107,6 +106,7 @@ public class Main {
 
         System.out.println("=== Final System Status ===");
         homeManager.showStatus();
+        System.out.println();
 
 
         System.out.println("===  Old Thermostat  ===");
@@ -115,16 +115,15 @@ public class Main {
         adaptedThermo.turnOn();
         System.out.println(adaptedThermo.showStatus());
 
+        System.out.println();
 
         System.out.println("\n=== Security Camera Enhancements ===");
 
-        IDevice baseCamera = new SecurityCamera();
-        System.out.println(HandBook.camera_base_status +" " +baseCamera.showStatus());
+        camera1.setAlarmState(false);
 
-        baseCamera.turnOn();
-        System.out.println(HandBook.camera_base_status +" " + baseCamera.showStatus());
 
-        IDevice zoomCamera = new ZoomCamera(baseCamera);
+
+        IDevice zoomCamera = new ZoomCamera(camera1);
         System.out.println(HandBook.camera_base_status +" " + zoomCamera.showStatus());
 
         IDevice nightCamera = new NightVisionCamera(zoomCamera);
