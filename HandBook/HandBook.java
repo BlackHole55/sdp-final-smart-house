@@ -3,6 +3,7 @@ package HandBook;
 public class HandBook {
     public static final float DEFAULT_DAY_TEMPERATURE_CELSIUS= 22;
     public static final float DEFAULT_NIGHT_TEMPERATURE_CELSIUS = 25;
+    private final String CELSIUS_STRING = "°C";
     private float temperatureCelsius;
 
     public static final int DEFAULT_LIGHTING_BRIGHTNESS = 80;
@@ -17,7 +18,7 @@ public class HandBook {
     }
    
     public String getTemperatureCelsius(){
-        return temperatureCelsius + "°C";
+        return temperatureCelsius + CELSIUS_STRING;
     }
     
     public void setBrightness(int brightness){
