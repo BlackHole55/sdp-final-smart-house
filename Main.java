@@ -124,12 +124,12 @@ public class Main {
 
 
         IDevice zoomCamera = new ZoomCamera(camera1);
-        System.out.println(Messages.camera_base_status +" " + zoomCamera.showStatus());
+        System.out.println(Messages.CAMERA_BASE_STATUS +" " + zoomCamera.showStatus());
 
         IDevice nightCamera = new NightVisionCamera(zoomCamera);
-        System.out.println(Messages.camera_base_status +" " + nightCamera.showStatus());
+        System.out.println(Messages.CAMERA_BASE_STATUS +" " + nightCamera.showStatus());
 
         IDevice fullCamera = new MotionTrackingCamera(nightCamera);
-        System.out.println(Messages.camera_base_status +" " + fullCamera.showStatus());
+        System.out.println(Messages.CAMERA_BASE_STATUS +" " + fullCamera.showStatus());
     }
 }
