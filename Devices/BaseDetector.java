@@ -11,14 +11,17 @@ public abstract class BaseDetector extends BaseDevice implements IDetector {
     protected boolean detected;
     protected boolean alarmState;
 
+    @Override
     public void setDetected(boolean detected) {
         this.detected = detected;
     }
 
+    @Override
     public void setAlarmState(boolean alarmActive){
         this.alarmState = alarmActive;
     }
-
+    
+    @Override
     public void addObserver(Observer observer) {
         this.observers.add(observer);
     }
@@ -27,6 +30,7 @@ public abstract class BaseDetector extends BaseDevice implements IDetector {
         this.observers.remove(observer);
     }
 
+    @Override
     public void notifyObservers(String message) {
         for(Observer observer : this.observers) {
             observer.update(message);
