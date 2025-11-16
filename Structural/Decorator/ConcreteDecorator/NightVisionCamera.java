@@ -1,6 +1,6 @@
 package Structural.Decorator.ConcreteDecorator;
 import Devices.IDevice;
-import HandBook.HandBook;
+import MessagesHandbook.Messages;
 import Structural.Decorator.BaseDecorator.CameraDecorator;
 
 public class NightVisionCamera extends CameraDecorator {
@@ -10,6 +10,6 @@ public class NightVisionCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + HandBook.camera_night_vision;
+        return decoratedCamera.showStatus() + Messages.camera_night_vision;
     }
 }

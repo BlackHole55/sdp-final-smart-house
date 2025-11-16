@@ -1,7 +1,7 @@
 package Structural.Decorator.ConcreteDecorator;
 
 import Devices.IDevice;
-import HandBook.HandBook;
+import MessagesHandbook.Messages;
 import Structural.Decorator.BaseDecorator.CameraDecorator;
 
 public class MotionTrackingCamera extends CameraDecorator {
@@ -11,6 +11,6 @@ public class MotionTrackingCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + HandBook.camera_motion_tracking;
+        return decoratedCamera.showStatus() + Messages.camera_motion_tracking;
     }
 }

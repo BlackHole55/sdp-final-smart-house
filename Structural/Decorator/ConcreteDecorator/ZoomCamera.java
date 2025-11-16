@@ -1,7 +1,7 @@
 package Structural.Decorator.ConcreteDecorator;
 
 import Devices.IDevice;
-import HandBook.HandBook;
+import MessagesHandbook.Messages;
 import Structural.Decorator.BaseDecorator.CameraDecorator;
 
 public class ZoomCamera extends CameraDecorator {
@@ -11,6 +11,6 @@ public class ZoomCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + HandBook.camera_zoom;
+        return decoratedCamera.showStatus() + Messages.camera_zoom;
     }
 }
