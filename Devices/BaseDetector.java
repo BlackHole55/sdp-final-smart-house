@@ -16,10 +16,7 @@ public abstract class BaseDetector extends BaseDevice implements IDetector {
     }
 
     public void setAlarmState(boolean alarmActive){
-        if(detected && alarmActive) {
-            alarmState = true;}
-        else {
-            alarmState = false;}
+        this.alarmState = alarmActive;
     }
 
     public void addObserver(Observer observer) {
@@ -36,13 +33,8 @@ public abstract class BaseDetector extends BaseDevice implements IDetector {
         }
     }
 
-    protected void triggerAlarm(boolean alarmState) {
-  
-        if (alarmState) {
-            this.notifyObservers(Messages.ALERT);
-        } else {
-            this.notifyObservers(Messages.NOTHING_DETECTED);
-        }
-
+    protected void triggerAlarm(boolean alarm) {
+        this.alarmState = alarm;
+        notifyObservers(alarm ? Messages.ALERT : Messages.NOTHING_DETECTED);
     }
 }
