@@ -1,9 +1,9 @@
-package Observer.ConcreteObservers;
+package Behavioral.Observer.ConcreteObservers;
 
-import Observer.Observer;
-import MessagesHandbook.Messages;
+import Behavioral.Observer.IObserver;
+import HandBook.Messages;
 
-public class PresenceDetectionObserver implements Observer {
+public class PresenceDetectionObserver implements IObserver {
 
     @Override
     public void update(String message) {

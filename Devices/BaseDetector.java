@@ -3,11 +3,11 @@ package Devices;
 import java.util.HashSet;
 import java.util.Set;
 
-import Observer.Observer;
-import MessagesHandbook.Messages;
+import Behavioral.Observer.IObserver;
+import HandBook.Messages;
 
 public abstract class BaseDetector extends BaseDevice implements IDetector {
-    private Set<Observer> observers = new HashSet<Observer>();
+    private Set<IObserver> observers = new HashSet<IObserver>();
     protected boolean detected;
     protected boolean alarmState;
 
@@ -22,17 +22,17 @@ public abstract class BaseDetector extends BaseDevice implements IDetector {
     }
     
     @Override
-    public void addObserver(Observer observer) {
+    public void addObserver(IObserver observer) {
         this.observers.add(observer);
     }
 
-    public void removeObserver(Observer observer) {
+    public void removeObserver(IObserver observer) {
         this.observers.remove(observer);
     }
 
     @Override
     public void notifyObservers(String message) {
-        for(Observer observer : this.observers) {
+        for(IObserver observer : this.observers) {
             observer.update(message);
         }
     }

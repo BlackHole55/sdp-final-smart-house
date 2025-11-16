@@ -1,9 +1,9 @@
-package Observer.ConcreteObservers;
+package Behavioral.Observer.ConcreteObservers;
 
-import Observer.Observer;
-import MessagesHandbook.Messages;
+import Behavioral.Observer.IObserver;
+import HandBook.Messages;
 
-public class FireObserver implements Observer {
+public class FireObserver implements IObserver {
     
     @Override
     public void update(String message) {
