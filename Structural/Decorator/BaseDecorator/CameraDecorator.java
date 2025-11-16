@@ -1,9 +1,8 @@
 package Structural.Decorator.BaseDecorator;
 
-import Devices.BaseDevice;
 import Devices.IDevice;
 
-public abstract class CameraDecorator extends BaseDevice {
+public abstract class CameraDecorator implements IDevice  {
     protected IDevice decoratedCamera;
 
     public CameraDecorator(IDevice camera) {
@@ -23,5 +22,9 @@ public abstract class CameraDecorator extends BaseDevice {
     @Override
     public String showStatus() {
         return decoratedCamera.showStatus();
+    }
+    @Override
+    public boolean isOn() {
+        return decoratedCamera.isOn();
     }
 }
