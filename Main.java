@@ -17,6 +17,7 @@ import Structural.Adapter.Service.OldThermostat;
 import Structural.Decorator.ConcreteDecorator.MotionTrackingCamera;
 import Structural.Decorator.ConcreteDecorator.NightVisionCamera;
 import Structural.Decorator.ConcreteDecorator.ZoomCamera;
+import MessagesHandbook.Messages;
 
 import java.util.ArrayList;
 
@@ -124,12 +125,12 @@ public class Main {
 
 
         IDevice zoomCamera = new ZoomCamera(camera1);
-        System.out.println(HandBook.camera_base_status +" " + zoomCamera.showStatus());
+        System.out.println(Messages.camera_base_status +" " + zoomCamera.showStatus());
 
         IDevice nightCamera = new NightVisionCamera(zoomCamera);
-        System.out.println(HandBook.camera_base_status +" " + nightCamera.showStatus());
+        System.out.println(Messages.camera_base_status +" " + nightCamera.showStatus());
 
         IDevice fullCamera = new MotionTrackingCamera(nightCamera);
-        System.out.println(HandBook.camera_base_status +" " + fullCamera.showStatus());
+        System.out.println(Messages.camera_base_status +" " + fullCamera.showStatus());
     }
 }
