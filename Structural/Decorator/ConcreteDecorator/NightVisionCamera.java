@@ -10,6 +10,6 @@ public class NightVisionCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + Messages.camera_night_vision;
+        return decoratedCamera.showStatus() + Messages.CAMERA_NIGHT_VISION;
     }
 }

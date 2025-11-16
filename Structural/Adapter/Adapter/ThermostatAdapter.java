@@ -24,7 +24,7 @@ public class ThermostatAdapter implements IDevice {
 
     @Override
     public String showStatus() {
-        return Messages.thermostat_status_message
+        return Messages.THERMOSTAT_STATUS_MESSAGE
                 + oldThermostat.getTempCelsius()
                 + HandBook.CELSIUS_STRING;
     }

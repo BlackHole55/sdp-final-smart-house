@@ -34,10 +34,10 @@ public class Messages {
     public static final String DOORS_UNLOCKED = "Doors are unclocked";
 
 
-    public static String thermostat_status_message = "Old Thermostat temperature: ";
+    public static final String THERMOSTAT_STATUS_MESSAGE = "Old Thermostat temperature: ";
 
-    public static String camera_base_status = "Security Camera" ;
-    public static String camera_zoom = " + Equipped with Optical Zoom (closer view of details)";
-    public static String camera_night_vision = " + Enhanced with Night Vision (works in darkness)";
-    public static String camera_motion_tracking = " + Enabled Motion Tracking (follows movement)";
+    public static final String CAMERA_BASE_STATUS = "Security Camera" ;
+    public static final String CAMERA_ZOOM = " + Equipped with Optical Zoom (closer view of details)";
+    public static final String CAMERA_NIGHT_VISION = " + Enhanced with Night Vision (works in darkness)";
+    public static final String CAMERA_MOTION_TRACKING = " + Enabled Motion Tracking (follows movement)";
 }

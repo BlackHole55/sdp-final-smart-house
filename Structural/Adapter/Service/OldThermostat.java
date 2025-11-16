@@ -1,9 +1,9 @@
 package Structural.Adapter.Service;
 
 public class OldThermostat {
-    private double tempCelsius;
+    private float tempCelsius;
 
-    public void setTempCelsius(double temp) {
+    public void setTempCelsius(float temp) {
         this.tempCelsius = temp; 
     }
 

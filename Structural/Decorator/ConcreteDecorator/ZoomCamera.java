@@ -11,6 +11,6 @@ public class ZoomCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + Messages.camera_zoom;
+        return decoratedCamera.showStatus() + Messages.CAMERA_ZOOM;
     }
 }

@@ -11,6 +11,6 @@ public class MotionTrackingCamera extends CameraDecorator {
 
     @Override
     public String showStatus() {
-        return decoratedCamera.showStatus() + Messages.camera_motion_tracking;
+        return decoratedCamera.showStatus() + Messages.CAMERA_MOTION_TRACKING;
     }
 }
